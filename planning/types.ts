@@ -1,4 +1,4 @@
-type Adress = {
+type Address = {
     name: string,
     company: string,
     street: string,
@@ -16,6 +16,6 @@ type Product = {
 
 type OrderItem = {
     orderRef: string,
-    adress: Adress,
+    adress: Address,
     productList: Product[]
 }
