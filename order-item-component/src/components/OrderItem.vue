@@ -1,12 +1,24 @@
 <template>
-  <div>{{PRODUCT_LIST[0]}}</div>
+  <div>Order Reference: {{ order?.orderRef }}</div>
+  <AddressBox/>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, computed } from 'vue';
+
+
 
 export default defineComponent({
-  setup() {
+  name: 'OrderItem',
+  components: {
+  },
+  props: {
+    orderRef: {
+      required: true,
+      type: String,
+    },
+  },
+  setup(props) {
     type Address = {
       name: string;
       company: string;
@@ -154,7 +166,14 @@ export default defineComponent({
       },
     ]);
 
-    return { PRODUCT_LIST, ORDER_LIST };
+    const order = computed(() => {
+      return ORDER_LIST.value.find(
+        (order) => order.orderRef === props.orderRef
+      );
+    });
+
+
+    return { PRODUCT_LIST, ORDER_LIST, order };
   },
 });
 </script>

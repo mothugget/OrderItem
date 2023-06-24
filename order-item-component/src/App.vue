@@ -1,5 +1,5 @@
 <template>
-  <OrderItem/>
+  <OrderItem orderRef='GNV0F'/>
 </template>
 
 <script lang="ts">
