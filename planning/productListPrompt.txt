@@ -1,0 +1,18 @@
+create an array of 8 product objects. these need to be of the following type:
+
+type Product = {
+    sku: string,
+    title: string,
+    category: string,
+    price: number
+}
+
+the sku is a string of length 10 of randomly generated characters 
+
+the price values have two decimal places
+
+the titles must be names of mechanical parts
+
+each of the values must be unique
+
+the category values must be one of [Automotive, Nautical, Industry]

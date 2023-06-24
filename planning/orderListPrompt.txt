@@ -1,0 +1,80 @@
+create an array of 3 objects of type OrderItem, using the following types
+
+type Adress = {
+    name: string,
+    company: string,
+    street: string,
+    city: string,
+    postalCode: string,
+    country: string,
+}
+
+type Product = {
+    sku: string,
+    title: string,
+    category: string,
+    price: number
+}
+
+type OrderItem = {
+    orderRef: string,
+    adress: Adress,
+    productList: Product[]
+}
+
+the product list consists of 1 to 3 products randomly selected from the following array
+
+[
+    {
+        sku: '86ZL82ERVQ',
+        title: 'Washer',
+        category: 'Industry',
+        price: 38.09
+    },
+    {
+        sku: '9LU38YOJ8A',
+        title: 'Piston',
+        category: 'Industry',
+        price: 81.14
+    },
+    {
+        sku: 'LJ1AUIWQZ6',
+        title: 'Cam',
+        category: 'Automotive',
+        price: 40.34
+    },
+    {
+        sku: '6EFD0C00DI',
+        title: 'Clamp',
+        category: 'Nautical',
+        price: 68.62
+    },
+    {
+        sku: 'ZJY1JYB1A1',
+        title: 'Bolt',
+        category: 'Automotive',
+        price: 73.52
+    },
+    {
+        sku: 'KDPRURUR2M',
+        title: 'Valve',
+        category: 'Industry',
+        price: 69.95
+    },
+    {
+        sku: 'EIQ25ZB9UQ',
+        title: 'Nut',
+        category: 'Automotive',
+        price: 75.36
+    },
+    {
+        sku: 'CMVI6FA5BC',
+        title: 'Bearing',
+        category: 'Industry',
+        price: 38.87
+    }
+]
+
+the address values must be unique
+
+the orderRef is a string of length 5 of randomly generated characters
