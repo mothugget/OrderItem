@@ -1,15 +1,15 @@
 <template>
-  <OrderItem orderRef='GNV0F'/>
+  <OrderList/>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import OrderItem from './components/OrderItem.vue'
+import OrderList from './components/OrderList.vue'
 
 export default defineComponent({
   name: 'App',
   components: {
-    OrderItem
+    OrderList
   }
 })
 </script>
