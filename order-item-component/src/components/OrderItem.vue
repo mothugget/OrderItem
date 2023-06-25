@@ -2,7 +2,7 @@
   <div>
     <p>Order Reference: {{ order.orderRef }}</p>
     <AddressContainer :address="order.address"/>
-    <ProductList :productList="order.productList" :orderRef="order.orderRef"/>
+    <ProductList :productList="order.productList" :order="order"/>
   </div>
 </template>
 

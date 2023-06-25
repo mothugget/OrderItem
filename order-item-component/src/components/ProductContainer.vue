@@ -12,6 +12,7 @@
 <script lang="ts">
 import { ref, computed, defineComponent, PropType } from 'vue';
 import ProductLine from '../types/ProductLine';
+import OrderItemType from '../types/OrderItemType';
 
 export default defineComponent({
   name: 'ProductContainer',
@@ -20,9 +21,9 @@ export default defineComponent({
       required: true,
       type: Object as PropType<ProductLine>,
     },
-        orderRef: {
+        order: {
       required: true,
-      type: String,
+      type: Object as PropType<OrderItemType>,
     }
   },
   setup(props) {
