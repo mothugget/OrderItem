@@ -1,5 +1,5 @@
 <template>
-  <div>{{ productLine }}</div>
+  <div> Title {{ productLine.product.title }} Article no. {{ productLine.product.sku }} Quantity {{ productLine.quantity }}</div>
 </template>
 
 <script lang="ts">
