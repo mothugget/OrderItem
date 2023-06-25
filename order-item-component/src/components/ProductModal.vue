@@ -1,17 +1,21 @@
+<template>
+<div>
+    {{ orderProducts }}
+</div>
+</template>
+
 <script lang="ts">
 import { defineComponent, PropType } from 'vue'
 import ProductProp from '../types/ProductProp'
 
 export default defineComponent({
-    name: ProductModal,
+    name: 'ProductModal',
     props: {
-        OrderProducts:{
-            required: true;
+        orderProducts:{
+            required: true,
             type: Object as PropType<ProductProp>
         }
     }
-    setup() {
-        
-    },
+
 })
 </script>

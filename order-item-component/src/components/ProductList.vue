@@ -2,16 +2,17 @@
   <div>
     <li v-for="productLine in productList" :key="productLine.product.sku">
       <ProductContainer :productLine="productLine"  :orderRef="orderRef" />
-      <ProductModalVue/>
     </li>
+    <ProductModalVue :orderProducts="orderProducts"/>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType, computed } from 'vue';
-import ProductLine from '../types/ProductLine';
 import ProductContainer from './ProductContainer.vue';
 import ProductModalVue from './ProductModal.vue';
+import ProductLine from '../types/ProductLine';
+import ProductProp from '../types/ProductProp'
 
 
 export default defineComponent({
@@ -31,7 +32,21 @@ export default defineComponent({
     },
   },
   setup(props){
-    const OrderProducts = computed()
+    const orderProducts = computed(()=>{
+      const productQuantities = []
+      for(let productLine of props.productList ){
+        productQuantities.push({
+          sku:productLine.product.sku,
+          quantity:productLine.quantity
+        })
+      }
+      const orderProducts:ProductProp = {
+        orderRef:props.orderRef,
+        products: productQuantities
+      }
+      return orderProducts
+    })
+    return {orderProducts}
   }
 });
 </script>

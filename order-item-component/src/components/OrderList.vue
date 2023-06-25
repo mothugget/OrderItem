@@ -1,6 +1,6 @@
 <template>
   <div>
-    <li v-for="order in ORDER_LIST" :key="order.orderRef">
+    <li v-for="order in displayedOrders" :key="order.orderRef">
       <button @click="deleteOrder(order)">X</button>
       <OrderItem :order="order" />
     </li>
@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, provide } from 'vue';
+import { defineComponent, ref, provide, computed } from 'vue';
 import OrderItem from './OrderItem.vue';
 import OrderItemType from '../types/OrderItemType';
 import Product from '../types/Product';
@@ -333,10 +333,14 @@ export default defineComponent({
       }
     }
 
-    provide('updateQuantity', { updateQuantity });
+    provide('updateQuantity', { updateQuantity })
     provide('PRODUCT_LIST',PRODUCT_LIST.values)
 
-    return {  ORDER_LIST, deleteOrder };
+    const displayedOrders= computed(()=> {
+      return [...ORDER_LIST.value].slice(0,5)
+    })
+
+    return {  ORDER_LIST, deleteOrder, displayedOrders };
   },
 });
 </script>
