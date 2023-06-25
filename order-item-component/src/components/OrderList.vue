@@ -310,14 +310,29 @@ export default defineComponent({
       }
     }
 
-    function updateQuantity(orderRef:string, sku:string, quantity:any) {
-      const orderIndex = ORDER_LIST.value.findIndex(order => order.orderRef === orderRef)
-      const productIndex = ORDER_LIST.value[orderIndex].productList.findIndex(productLine => productLine.product.sku === sku)
-      console.log(ORDER_LIST.value[orderIndex].productList[productIndex].product)
-      console.log(quantity)
+    function updateQuantity(orderRef: string, sku: string, quantity: number) {
+      const orderIndex = ORDER_LIST.value.findIndex(
+        (order) => order.orderRef === orderRef
+      );
+
+      const productIndex = ORDER_LIST.value[orderIndex].productList.findIndex(
+        (productLine) => productLine.product.sku === sku
+      );
+      //if 0 then remove the productLine from the order
+      if (quantity <1) {
+        ORDER_LIST.value[orderIndex].productList.splice(productIndex, 1);
+        //if this is the last product of the order then remove the order  from the list
+        if(ORDER_LIST.value[orderIndex].productList.length<1){
+          ORDER_LIST.value.splice(orderIndex, 1);
+        }
+        //otherwise just update the product line quantity
+      } else {
+        ORDER_LIST.value[orderIndex].productList[productIndex].quantity =
+          quantity;
+      }
     }
 
-    provide('updateQuantity', {updateQuantity});
+    provide('updateQuantity', { updateQuantity });
 
     return { PRODUCT_LIST, ORDER_LIST, deleteOrder };
   },

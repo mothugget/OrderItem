@@ -3,7 +3,7 @@
     {{ productLine.product.title }} {{ productLine.product.sku }} 
     <form @submit.prevent="submitQuantity">
       <label>Quantity</label>
-      <input type="number" required :value="quantity" />
+      <input type="number" required min="0" :value="quantity" />
     </form>
   </div>
 </template>
