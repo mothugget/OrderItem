@@ -1,9 +1,8 @@
 <template>
   <div>
     <li v-for="productLine in productList" :key="productLine.product.sku">
-      <ProductContainer :productLine="productLine" />
+      <ProductContainer :productLine="productLine"  :orderRef="orderRef" />
     </li>
-    <button>+</button>
   </div>
 </template>
 
@@ -21,6 +20,10 @@ export default defineComponent({
     productList: {
       required: true,
       type: Object as PropType<ProductLine[]>,
+    },
+    orderRef: {
+      required: true,
+      type: String,
     },
   },
 });

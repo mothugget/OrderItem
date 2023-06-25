@@ -1,4 +1,4 @@
-create an array of 3 objects of type OrderItem, using the following types
+create an array of 8 objects of type OrderItem, using the following types
 
 type Address = {
     name: string,
@@ -80,6 +80,6 @@ the product list consists of 1 to 3 product lines with quantities of 1 to 5 and 
     }
 ]
 
-the address values must be unique
+the address values must be unique for each order
 
 the orderRef is a string of length 5 of randomly generated characters
