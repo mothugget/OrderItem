@@ -1,9 +1,9 @@
 <template>
   <div>
     {{ productLine.product.title }} {{ productLine.product.sku }} 
-    <form >
+    <form @submit.prevent="updateQuantity(orderRef,productLine.product.sku, productLine.quantity)">
       <label>Quantity</label>
-      <input type="number" required v-model="quantity" />
+      <input type="number" required :value="quantity" />
     </form>
     <button @click="updateQuantity(orderRef,productLine.product.sku, productLine.quantity)">Click me</button>
   </div>
@@ -29,7 +29,7 @@ export default defineComponent({
     const showForm = ref(false);
     let quantity = computed(() => props.productLine.quantity);
     const updateQuantity = inject('updateQuantity')
-    return { quantity, showForm, updateQuantity };
+    return { quantity, showForm, updateQuantity};
   },
 });
 </script>
