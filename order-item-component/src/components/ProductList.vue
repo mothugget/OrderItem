@@ -1,23 +1,25 @@
 <template>
-        <li v-for="product in productList" :key="product.sku">
-      <ProductContainer :product="product"/>
+  <div>
+    <li v-for="productLine in productList" :key="productLine.product.sku">
+      <ProductContainer :productLine="productLine" />
     </li>
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
-import Product from '../types/Product';
+import ProductLine from '../types/ProductLine';
 import ProductContainer from './ProductContainer.vue';
 
 export default defineComponent({
   name: 'ProductList',
-  components:{
-    ProductContainer
+  components: {
+    ProductContainer,
   },
   props: {
     productList: {
       required: true,
-      type: Object as PropType<Product[]>,
+      type: Object as PropType<ProductLine[]>,
     },
   },
 });

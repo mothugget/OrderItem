@@ -9,6 +9,11 @@ type Address = {
     country: string,
 }
 
+type ProductLine = {
+    product: Product,
+    quantity: number,
+}
+
 type Product = {
     sku: string,
     title: string,
@@ -19,10 +24,10 @@ type Product = {
 type OrderItem = {
     orderRef: string,
     adress: Address,
-    productList: Product[]
+    productList: ProductLine[]
 }
 
-the product list consists of 1 to 3 products randomly selected from the following array
+the product list consists of 1 to 3 product lines with quantities of 1 to 5 and products randomly selected from the following array
 
 [
     {

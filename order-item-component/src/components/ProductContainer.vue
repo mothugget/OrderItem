@@ -1,17 +1,17 @@
 <template>
-  {{ product }}
+  <div>{{ productLine }}</div>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
-import Product from '../types/Product'
+import ProductLine from '../types/ProductLine'
 
 export default defineComponent({
     name: 'ProductContainer',
   props: {
-    product: {
+    productLine: {
       required: true,
-      type: Object as PropType<Product>,
+      type: Object as PropType<ProductLine>,
     },
   },
 })

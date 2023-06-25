@@ -71,76 +71,118 @@ export default defineComponent({
     ];
 
     const ORDER_LIST = ref<OrderItemType[]>([
+  {
+    orderRef: '2aSWr',
+    address: {
+      name: 'John Doe',
+      company: 'ABC Company',
+      street: '123 Main St',
+      city: 'New York',
+      postalCode: '10001',
+      country: 'USA'
+    },
+    productList: [
       {
-        orderRef: 'GNV0F',
-        address: {
-          name: 'Michael Johnson',
-          company: '123 Industries',
-          street: '789 Oak Avenue',
-          city: 'Sydney',
-          postalCode: '2000',
-          country: 'Australia',
+        product: {
+          sku: '6EFD0C00DI',
+          title: 'Clamp',
+          category: 'Nautical',
+          price: 68.62
         },
-        productList: [
-          {
-            sku: 'EIQ25ZB9UQ',
-            title: 'Nut',
-            category: 'Automotive',
-            price: 75.36,
-          },
-        ],
+        quantity: 1
       },
       {
-        orderRef: '6BFQ0',
-        address: {
-          name: 'Jane Smith',
-          company: 'XYZ Corp',
-          street: '456 Elm Street',
-          city: 'London',
-          postalCode: 'SW1A 1AA',
-          country: 'United Kingdom',
+        product: {
+          sku: 'LJ1AUIWQZ6',
+          title: 'Cam',
+          category: 'Automotive',
+          price: 40.34
         },
-        productList: [
-          {
-            sku: 'KDPRURUR2M',
-            title: 'Valve',
-            category: 'Industry',
-            price: 69.95,
-          },
-          {
-            sku: 'LJ1AUIWQZ6',
-            title: 'Cam',
-            category: 'Automotive',
-            price: 40.34,
-          },
-          {
-            sku: '86ZL82ERVQ',
-            title: 'Washer',
-            category: 'Industry',
-            price: 38.09,
-          },
-        ],
+        quantity: 5
       },
       {
-        orderRef: 'SCFK0',
-        address: {
-          name: 'John Doe',
-          company: 'ABC Company',
-          street: '123 Main Street',
-          city: 'New York',
-          postalCode: '10001',
-          country: 'United States',
+        product: {
+          sku: '86ZL82ERVQ',
+          title: 'Washer',
+          category: 'Industry',
+          price: 38.09
         },
-        productList: [
-          {
-            sku: '9LU38YOJ8A',
-            title: 'Piston',
-            category: 'Industry',
-            price: 81.14,
-          },
-        ],
+        quantity: 2
+      }
+    ]
+  },
+  {
+    orderRef: 'beipG',
+    address: {
+      name: 'Alice Johnson',
+      company: '123 Industries',
+      street: '789 Oak St',
+      city: 'Chicago',
+      postalCode: '60601',
+      country: 'USA'
+    },
+    productList: [
+      {
+        product: {
+          sku: 'CMVI6FA5BC',
+          title: 'Bearing',
+          category: 'Industry',
+          price: 38.87
+        },
+        quantity: 5
       },
-    ]);
+      {
+        product: {
+          sku: 'LJ1AUIWQZ6',
+          title: 'Cam',
+          category: 'Automotive',
+          price: 40.34
+        },
+        quantity: 3
+      },
+      {
+        product: {
+          sku: 'CMVI6FA5BC',
+          title: 'Bearing',
+          category: 'Industry',
+          price: 38.87
+        },
+        quantity: 1
+      }
+    ]
+  },
+  {
+    orderRef: 'bZFPS',
+    address: {
+      name: 'John Doe',
+      company: 'ABC Company',
+      street: '123 Main St',
+      city: 'New York',
+      postalCode: '10001',
+      country: 'USA'
+    },
+    productList: [
+      {
+        product: {
+          sku: '9LU38YOJ8A',
+          title: 'Piston',
+          category: 'Industry',
+          price: 81.14
+        },
+        quantity: 5
+      },
+      {
+        product: {
+          sku: '9LU38YOJ8A',
+          title: 'Piston',
+          category: 'Industry',
+          price: 81.14
+        },
+        quantity: 4
+      }
+    ]
+  }
+]);
     return { PRODUCT_LIST, ORDER_LIST };
   },
 });

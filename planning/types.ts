@@ -7,6 +7,11 @@ type Address = {
     country: string,
 }
 
+type ProductLine = {
+    product: Product,
+    quantity: number,
+}
+
 type Product = {
     sku: string,
     title: string,
@@ -17,5 +22,5 @@ type Product = {
 type OrderItem = {
     orderRef: string,
     adress: Address,
-    productList: Product[]
+    productList: ProductLine[]
 }

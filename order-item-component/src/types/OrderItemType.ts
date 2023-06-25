@@ -1,10 +1,10 @@
    import Address from './Address'
-   import Product from './Product'
+   import ProductLine from './ProductLine'
    
    type OrderItemType = {
       orderRef: string;
       address: Address;
-      productList: Product[];
+      productList: ProductLine[];
     };
 
     export default OrderItemType
