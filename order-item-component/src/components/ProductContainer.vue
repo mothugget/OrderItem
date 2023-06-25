@@ -4,6 +4,7 @@
     <form @submit.prevent="submitQuantity">
       <label>Quantity</label>
       <input type="number" required min="0" :value="quantity" />
+      <button type="submit">Edit</button>
     </form>
   </div>
 </template>

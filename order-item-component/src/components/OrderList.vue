@@ -327,8 +327,9 @@ export default defineComponent({
         }
         //otherwise just update the product line quantity
       } else {
-        ORDER_LIST.value[orderIndex].productList[productIndex].quantity =
-          quantity;
+        
+        ORDER_LIST.value[orderIndex].productList[productIndex].quantity = quantity;
+      console.log(ORDER_LIST.value[orderIndex].productList[productIndex].quantity)
       }
     }
 
