@@ -3,6 +3,7 @@
     <li v-for="productLine in productList" :key="productLine.product.sku">
       <ProductContainer :productLine="productLine" />
     </li>
+    <button>+</button>
   </div>
 </template>
 
