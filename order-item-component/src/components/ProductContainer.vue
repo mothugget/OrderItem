@@ -1,11 +1,10 @@
 <template>
   <div>
     {{ productLine.product.title }} {{ productLine.product.sku }} 
-    <form @submit.prevent="updateQuantity(orderRef,productLine.product.sku, productLine.quantity)">
+    <form @submit.prevent="submitQuantity">
       <label>Quantity</label>
       <input type="number" required :value="quantity" />
     </form>
-    <button @click="updateQuantity(orderRef,productLine.product.sku, productLine.quantity)">Click me</button>
   </div>
 </template>
 
@@ -27,9 +26,15 @@ export default defineComponent({
   },
   setup(props) {
     const showForm = ref(false);
+
     let quantity = computed(() => props.productLine.quantity);
-    const updateQuantity = inject('updateQuantity')
-    return { quantity, showForm, updateQuantity};
+
+    const {updateQuantity} = inject('updateQuantity')
+
+    function submitQuantity(e){
+      updateQuantity(props.orderRef, props.productLine.product.sku, e.target[0].value)
+    }
+    return { quantity, showForm, submitQuantity};
   },
 });
 </script>
