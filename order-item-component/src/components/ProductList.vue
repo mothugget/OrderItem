@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue';
+import { defineComponent, PropType, computed } from 'vue';
 import ProductLine from '../types/ProductLine';
 import ProductContainer from './ProductContainer.vue';
 
@@ -26,5 +26,9 @@ export default defineComponent({
       type: String,
     },
   },
+  setup(props){
+    console.log(props.productList[0].product.sku)
+    
+  }
 });
 </script>

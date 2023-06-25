@@ -334,8 +334,9 @@ export default defineComponent({
     }
 
     provide('updateQuantity', { updateQuantity });
+    provide('PRODUCT_LIST',PRODUCT_LIST.values)
 
-    return { PRODUCT_LIST, ORDER_LIST, deleteOrder };
+    return {  ORDER_LIST, deleteOrder };
   },
 });
 </script>
