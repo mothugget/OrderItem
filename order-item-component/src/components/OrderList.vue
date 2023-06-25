@@ -310,11 +310,14 @@ export default defineComponent({
       }
     }
 
-    // function updateQuantity(orderRef, SKU, quantity) {
-    //   const  orderIndex=ORDER_LIST.value.indexOf()
-    // }
+    function updateQuantity(orderRef:string, sku:string, quantity:number) {
+      const orderIndex = ORDER_LIST.value.findIndex(order => order.orderRef === orderRef)
+      const productIndex = ORDER_LIST.value[orderIndex].productList.findIndex(productLine => productLine.product.sku === sku)
+      console.log(ORDER_LIST.value[orderIndex].productList[productIndex].product)
+    }
 
-    // provide('updateQuantity', updateQuantity);
+    provide('updateQuantity', updateQuantity);
+
     return { PRODUCT_LIST, ORDER_LIST, deleteOrder };
   },
 });

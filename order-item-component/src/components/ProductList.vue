@@ -1,7 +1,7 @@
 <template>
   <div>
     <li v-for="productLine in productList" :key="productLine.product.sku">
-      <ProductContainer :productLine="productLine"  :order="order" />
+      <ProductContainer :productLine="productLine"  :orderRef="orderRef" />
     </li>
   </div>
 </template>
@@ -10,7 +10,6 @@
 import { defineComponent, PropType } from 'vue';
 import ProductLine from '../types/ProductLine';
 import ProductContainer from './ProductContainer.vue';
-import OrderItemType from '../types/OrderItemType';
 
 export default defineComponent({
   name: 'ProductList',
@@ -22,9 +21,9 @@ export default defineComponent({
       required: true,
       type: Object as PropType<ProductLine[]>,
     },
-    order: {
+    orderRef: {
       required: true,
-      type: Object as PropType<OrderItemType>,
+      type: String,
     },
   },
 });

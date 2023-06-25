@@ -5,14 +5,13 @@
       <label>Quantity</label>
       <input type="number" required v-model="quantity" />
     </form>
-
+    <button @click="updateQuantity(orderRef,productLine.product.sku, productLine.quantity)">Click me</button>
   </div>
 </template>
 
 <script lang="ts">
-import { ref, computed, defineComponent, PropType } from 'vue';
+import { ref, computed, defineComponent, PropType, inject } from 'vue';
 import ProductLine from '../types/ProductLine';
-import OrderItemType from '../types/OrderItemType';
 
 export default defineComponent({
   name: 'ProductContainer',
@@ -21,18 +20,16 @@ export default defineComponent({
       required: true,
       type: Object as PropType<ProductLine>,
     },
-        order: {
+        orderRef: {
       required: true,
-      type: Object as PropType<OrderItemType>,
+      type: String,
     }
   },
   setup(props) {
     const showForm = ref(false);
-
-
     let quantity = computed(() => props.productLine.quantity);
-
-    return { quantity, showForm };
+    const updateQuantity = inject('updateQuantity')
+    return { quantity, showForm, updateQuantity };
   },
 });
 </script>
