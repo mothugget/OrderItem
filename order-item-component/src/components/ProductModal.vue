@@ -90,7 +90,7 @@ export default defineComponent({
   position: relative;
   z-index: 6;
   background: #d2fff5;
-  padding: 10px 10px;
+  padding: 18px 18px;
 }
 
 h3 {
