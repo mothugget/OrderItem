@@ -30,10 +30,11 @@ export default defineComponent({
 
     let quantity = computed(() => props.productLine.quantity);
 
-    const {updateQuantity} = inject('updateQuantity')
+    const {updateQuantity} = inject<any>('updateQuantity')
 
-    function submitQuantity(e){
-      updateQuantity(props.orderRef, props.productLine.product.sku, e.target[0].value)
+    
+    function submitQuantity(e:any){
+     updateQuantity(props.orderRef, props.productLine.product.sku, e.target[0].value)
     }
     return { quantity, showForm, submitQuantity};
   },

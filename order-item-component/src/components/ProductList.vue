@@ -3,12 +3,13 @@
     <li v-for="productLine in productList" :key="productLine.product.sku">
       <ProductContainer :productLine="productLine"  :orderRef="orderRef" />
     </li>
-    <ProductModalVue :orderProducts="orderProducts"/>
+<button @click="launchProductModal">+</button>
+    <ProductModalVue v-if="showProductModal" :orderProducts="orderProducts"/>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, computed } from 'vue';
+import { defineComponent,ref, PropType, computed } from 'vue';
 import ProductContainer from './ProductContainer.vue';
 import ProductModalVue from './ProductModal.vue';
 import ProductLine from '../types/ProductLine';
@@ -46,7 +47,13 @@ export default defineComponent({
       }
       return orderProducts
     })
-    return {orderProducts}
+
+    function launchProductModal(){
+      showProductModal.value=!showProductModal.value
+    }
+
+    const showProductModal = ref(false);
+    return {orderProducts, showProductModal, launchProductModal}
   }
 });
 </script>

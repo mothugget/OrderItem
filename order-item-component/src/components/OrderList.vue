@@ -321,19 +321,13 @@ export default defineComponent({
       //if 0 then remove the productLine from the order
       if (quantity <1) {
         ORDER_LIST.value[orderIndex].productList.splice(productIndex, 1);
-        //if this is the last product of the order then remove the order  from the list
-        if(ORDER_LIST.value[orderIndex].productList.length<1){
-          ORDER_LIST.value.splice(orderIndex, 1);
-        }
         //otherwise just update the product line quantity
       } else {
-        
         ORDER_LIST.value[orderIndex].productList[productIndex].quantity = quantity;
-      console.log(ORDER_LIST.value[orderIndex].productList[productIndex].quantity)
       }
     }
 
-    provide('updateQuantity', { updateQuantity })
+    provide<any>('updateQuantity', { updateQuantity })
     provide('PRODUCT_LIST',PRODUCT_LIST.values)
 
     const displayedOrders= computed(()=> {
