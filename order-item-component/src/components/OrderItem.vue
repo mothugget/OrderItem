@@ -1,8 +1,13 @@
 <template>
   <div>
     <h3>Order Reference: {{ order.orderRef }}</h3>
-    <AddressContainer :address="order.address"/>
-    <ProductList :productList="order.productList" :orderRef="order.orderRef"/>
+    <div class="order-item-container">
+      <AddressContainer :address="order.address" />
+      <ProductList
+        :productList="order.productList"
+        :orderRef="order.orderRef"
+      />
+    </div>
   </div>
 </template>
 
@@ -16,7 +21,7 @@ export default defineComponent({
   name: 'OrderItem',
   components: {
     AddressContainer,
-    ProductList
+    ProductList,
   },
   props: {
     order: {
@@ -26,3 +31,14 @@ export default defineComponent({
   },
 });
 </script>
+
+<style>
+.order-item-container {
+  z-index: 0;
+  border-style: solid;
+  border-radius: 10px;
+  border-width: 3px;
+  border-color: #ff7658;
+  padding: 4px;
+}
+</style>
