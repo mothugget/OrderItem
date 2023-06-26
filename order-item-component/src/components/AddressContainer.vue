@@ -1,27 +1,27 @@
 <template>
   <table>
     <tr>
-      <td>Name</td>
+      <td class="table-label">Name</td>
       <td>{{ address.name }}</td>
     </tr>
     <tr>
-      <td>Company</td>
+      <td class="table-label">Company</td>
       <td>{{ address.company }}</td>
     </tr>
     <tr>
-      <td>Street</td>
+      <td class="table-label">Street</td>
       <td>{{ address.street }}</td>
     </tr>
     <tr>
-      <td>City</td>
+      <td class="table-label">City</td>
       <td>{{ address.city }}</td>
     </tr>
     <tr>
-      <td>Postal Code</td>
+      <td class="table-label">Postal Code</td>
       <td>{{ address.postalCode }}</td>
     </tr>
     <tr>
-      <td>Country</td>
+      <td class="table-label">Country</td>
       <td>{{ address.country }}</td>
     </tr>
   </table>
@@ -41,3 +41,23 @@ export default defineComponent({
   },
 });
 </script>
+
+<style>
+.adress-container {
+  border-bottom: 2px solid;
+  border-color: #ff7658;
+  width:100%;
+  border-radius: 0px 0px 10px 10px;
+  padding: 3px;
+}
+
+tr {
+  line-height: 14px;
+}
+
+.table-label {
+  text-align: right;
+  color: #199f7b;
+  font-weight: 600;
+}
+</style>

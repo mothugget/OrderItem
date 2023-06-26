@@ -2,7 +2,7 @@
   <div>
     <h3>Order Reference: {{ order.orderRef }}</h3>
     <div class="order-item-container">
-      <AddressContainer :address="order.address" />
+      <AddressContainer class="adress-container" :address="order.address" />
       <ProductList
         :productList="order.productList"
         :orderRef="order.orderRef"
@@ -34,11 +34,15 @@ export default defineComponent({
 
 <style>
 .order-item-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   z-index: 0;
   border-style: solid;
   border-radius: 10px;
   border-width: 3px;
   border-color: #ff7658;
-  padding: 4px;
+  padding: 0px;
+  overflow: hidden;
 }
 </style>
