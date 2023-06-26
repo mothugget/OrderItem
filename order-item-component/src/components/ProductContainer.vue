@@ -8,8 +8,9 @@
     It throws this error cause it cant figure out that at runtime the submit event will have the properties/types I cast to it.
     The code works, so here it stays. -->
     <form class="quantity-form" @submit.prevent="submitQuantity">
-      <div class="quantity">
+     
         <label>Quantity</label>
+         <div class="quantity">
         <input
           class="quantity-input"
           type="number"
@@ -17,12 +18,13 @@
           min="0"
           :value="quantity"
         />
-      </div>
+      
 
       <button :disabled="showPopUp" type="submit">
         Save
         <div v-if="showPopUp" class="saved-popup">Saved</div>
       </button>
+      </div>
     </form>
   </div>
 </template>
@@ -93,13 +95,17 @@ h4 {
 
 .quantity {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+}
+
+.quantity-form label{
+  position: relative;
+  left: 6px;
 }
 .quantity-form {
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
 }
 
 .quantity-input {
