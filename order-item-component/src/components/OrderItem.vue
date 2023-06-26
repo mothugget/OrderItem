@@ -37,7 +37,6 @@ export default defineComponent({
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 0;
   border-style: solid;
   border-radius: 10px;
   border-width: 3px;

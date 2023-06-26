@@ -4,7 +4,7 @@
       <ProductContainer  :productLine="productLine" :orderRef="orderRef" />
     </li>
     <button @click="launchProductModal">Add product to order</button>
-    <ProductModalVue v-if="showProductModal" :orderProducts="orderProducts" />
+    <ProductModalVue @close="launchProductModal" v-if="showProductModal" :orderProducts="orderProducts" />
   </div>
 </template>
 

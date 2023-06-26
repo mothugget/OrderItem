@@ -1,8 +1,12 @@
 <template>
   <div class="product-modal">
     <h3>Order: {{ orderProducts.orderRef }}</h3>
-    <div class="order-item-container modal-container">
+    <button class="delete-button" @click="closeModal">
+      <div class="delete-button-inner"></div>
+    </button>
+    <div class="order-item-container">
       <li
+        class="modal-list"
         v-for="productLine in productsWithQuantities"
         :key="productLine.product.sku"
       >
@@ -12,6 +16,7 @@
         />
       </li>
     </div>
+    <button class="modal-backdrop-button" @click="closeModal"></button>
   </div>
 </template>
 
@@ -33,8 +38,15 @@ export default defineComponent({
   components: {
     ProductContainer,
   },
-  setup(props) {
+  setup(props,{emit}) {
+
     const productList = inject<Product[]>('PRODUCT_LIST');
+
+    
+
+    function closeModal() {
+      emit('close');
+    }
 
     const productsWithQuantities = computed(() => {
       return productList?.map((product) => {
@@ -46,7 +58,7 @@ export default defineComponent({
         return { quantity: quantity, product: product } as ProductLine;
       });
     });
-    return { productsWithQuantities };
+    return { productsWithQuantities, closeModal };
   },
 });
 </script>
@@ -57,11 +69,39 @@ export default defineComponent({
   flex-direction: column;
   align-items: center;
   position: fixed;
-  margin-top: 50px;
+  top: 0px;
   z-index: 5;
 }
 
-.modal-container {
+.modal-backdrop-button {
+  position: fixed;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  top: 0px;
+  left: 0px;
+  background: rgba(129, 129, 129, 0.11);
+  backdrop-filter: blur(2vw);
+}
+</style>
+
+<style scoped>
+.order-item-container {
+  position: relative;
+  z-index: 6;
   background: #d2fff5;
+  padding: 10px 10px;
+}
+
+h3 {
+  position: relative;
+  z-index: 6;
+  color: black;
+}
+
+.delete-button {
+  top: 24px;
+  right: 0px;
+  z-index: 7;
 }
 </style>

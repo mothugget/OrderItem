@@ -79,12 +79,13 @@ h4 {
   color: #04694e;
 }
 .product-container {
+  width:275px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   background: #87f0d4;
-  margin: 3px;
+  margin: 3px 0px;
   padding: 3px;
   border-radius: 4px;
   box-shadow: 2px 2px 3px rgb(175, 175, 175);
