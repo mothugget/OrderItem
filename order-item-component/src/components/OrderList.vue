@@ -327,7 +327,7 @@ export default defineComponent({
       }
     }
 
-    provide<any>('updateQuantity', { updateQuantity })
+    provide('updateQuantity', { updateQuantity })
     provide('PRODUCT_LIST',PRODUCT_LIST.values)
 
     const displayedOrders= computed(()=> {
