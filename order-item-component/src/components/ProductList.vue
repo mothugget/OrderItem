@@ -1,26 +1,25 @@
 <template>
-  <div>
+  <div class="product-list">
     <li v-for="productLine in productList" :key="productLine.product.sku">
-      <ProductContainer :productLine="productLine"  :orderRef="orderRef" />
+      <ProductContainer  :productLine="productLine" :orderRef="orderRef" />
     </li>
-<button @click="launchProductModal">Add product to order</button>
-    <ProductModalVue v-if="showProductModal" :orderProducts="orderProducts"/>
+    <button @click="launchProductModal">Add product to order</button>
+    <ProductModalVue v-if="showProductModal" :orderProducts="orderProducts" />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent,ref, PropType, computed } from 'vue';
+import { defineComponent, ref, PropType, computed } from 'vue';
 import ProductContainer from './ProductContainer.vue';
 import ProductModalVue from './ProductModal.vue';
 import ProductLine from '../types/ProductLine';
-import ProductProp from '../types/ProductProp'
-
+import ProductProp from '../types/ProductProp';
 
 export default defineComponent({
   name: 'ProductList',
   components: {
     ProductContainer,
-    ProductModalVue
+    ProductModalVue,
   },
   props: {
     productList: {
@@ -32,28 +31,37 @@ export default defineComponent({
       type: String,
     },
   },
-  setup(props){
-    const orderProducts = computed(()=>{
-      const productQuantities = []
-      for(let productLine of props.productList ){
+  setup(props) {
+    const orderProducts = computed(() => {
+      const productQuantities = [];
+      for (let productLine of props.productList) {
         productQuantities.push({
-          sku:productLine.product.sku,
-          quantity:productLine.quantity
-        })
+          sku: productLine.product.sku,
+          quantity: productLine.quantity,
+        });
       }
-      const orderProducts:ProductProp = {
-        orderRef:props.orderRef,
-        products: productQuantities
-      }
-      return orderProducts
-    })
+      const orderProducts: ProductProp = {
+        orderRef: props.orderRef,
+        products: productQuantities,
+      };
+      return orderProducts;
+    });
 
-    function launchProductModal(){
-      showProductModal.value=!showProductModal.value
+    function launchProductModal() {
+      showProductModal.value = !showProductModal.value;
     }
 
     const showProductModal = ref(false);
-    return {orderProducts, showProductModal, launchProductModal}
-  }
+    return { orderProducts, showProductModal, launchProductModal };
+  },
 });
 </script>
+
+<style>
+.product-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+</style>

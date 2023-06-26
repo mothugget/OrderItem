@@ -1,9 +1,17 @@
 <template>
-  <div>
+  <div class="product-modal">
     <h3>Order: {{ orderProducts.orderRef }}</h3>
-    <li v-for="productLine in productsWithQuantities" :key="productLine.product.sku">
-      <ProductContainer :productLine="productLine" :orderRef="orderProducts.orderRef" />
-    </li>
+    <div class="order-item-container modal-container">
+      <li
+        v-for="productLine in productsWithQuantities"
+        :key="productLine.product.sku"
+      >
+        <ProductContainer
+          :productLine="productLine"
+          :orderRef="orderProducts.orderRef"
+        />
+      </li>
+    </div>
   </div>
 </template>
 
@@ -22,7 +30,7 @@ export default defineComponent({
       type: Object as PropType<ProductProp>,
     },
   },
-    components: {
+  components: {
     ProductContainer,
   },
   setup(props) {
@@ -42,3 +50,18 @@ export default defineComponent({
   },
 });
 </script>
+
+<style>
+.product-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  margin-top: 50px;
+  z-index: 5;
+}
+
+.modal-container {
+  background: #d2fff5;
+}
+</style>

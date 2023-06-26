@@ -1,5 +1,5 @@
 <template>
-  <table>
+  <table class="adress-container">
     <tr>
       <td class="table-label">Name</td>
       <td>{{ address.name }}</td>

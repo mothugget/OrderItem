@@ -1,5 +1,5 @@
 <template>
-  <div id="order-list">
+  <div class="order-list">
     <form>
       <input
         id="search-input"
@@ -10,7 +10,7 @@
       />
     </form>
     <li class="order-list-elements" v-for="order in displayedOrders" :key="order.orderRef">
-      <OrderItem class="order-item" :order="order" />
+      <OrderItem :order="order" />
       <button class="delete-button" @click="deleteOrder(order)">
         <div class="delete-button-inner"></div>
       </button>
@@ -289,7 +289,7 @@ export default defineComponent({
 </script>
 
 <style>
-#order-list {
+.order-list {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -309,6 +309,7 @@ export default defineComponent({
 
 .order-list-elements{
   position: relative;
+  margin-bottom: 15px;
 }
 
 .delete-button {

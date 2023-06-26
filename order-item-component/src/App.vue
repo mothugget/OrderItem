@@ -30,9 +30,9 @@ li {
   list-style: none;
 }
 button {
-  border-style: hidden;
+  position: relative;
+  border: 1px solid;
   border-radius: 4px;
-  
   font-weight: 600;
   color: #067f5e;
   background: #d2fff5;
