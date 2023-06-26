@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>Order Reference: {{ order.orderRef }}</p>
+    <h3>Order Reference: {{ order.orderRef }}</h3>
     <AddressContainer :address="order.address"/>
     <ProductList :productList="order.productList" :orderRef="order.orderRef"/>
   </div>

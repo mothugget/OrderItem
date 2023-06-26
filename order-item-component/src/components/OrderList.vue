@@ -1,5 +1,8 @@
 <template>
   <div>
+    <form>
+      <input type="text" v-model="search" maxlength="5" />
+    </form>
     <li v-for="order in displayedOrders" :key="order.orderRef">
       <button @click="deleteOrder(order)">X</button>
       <OrderItem :order="order" />
@@ -319,7 +322,7 @@ export default defineComponent({
         (productLine) => productLine.product.sku === sku
       );
       // Add product line to order if it isn't already there
-      if (productIndex === -1 && quantity>0) {
+      if (productIndex === -1 && quantity > 0) {
         const productToAdd = PRODUCT_LIST.find(
           (product) => product.sku === sku
         );
@@ -329,7 +332,7 @@ export default defineComponent({
             product: productToAdd,
           });
         productIndex = 0;
-      } else if (productIndex!==-1){
+      } else if (productIndex !== -1) {
         //if quantity 0 then remove the productLine from the order
         if (quantity < 1) {
           ORDER_LIST.value[orderIndex].productList.splice(productIndex, 1);
@@ -341,14 +344,23 @@ export default defineComponent({
       }
     }
 
+    const search = ref('');
+
     provide('updateQuantity', { updateQuantity });
     provide('PRODUCT_LIST', PRODUCT_LIST);
 
     const displayedOrders = computed(() => {
-      return [...ORDER_LIST.value].slice(0, 5);
+      const result: OrderItemType[] = [];
+      ORDER_LIST.value.forEach((order) => {
+        if (order.orderRef.toLowerCase().includes(search.value.toLowerCase())) {
+          result.push(order)
+        }
+      });
+      console.log(result)
+      return result;
     });
 
-    return { ORDER_LIST, deleteOrder, displayedOrders };
+    return { ORDER_LIST, deleteOrder, displayedOrders, search };
   },
 });
 </script>

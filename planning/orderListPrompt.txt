@@ -1,4 +1,4 @@
-create an array of 8 objects of type OrderItem, using the following types
+create an array of 5 objects of type OrderItem, using the following types
 
 type Address = {
     name: string,

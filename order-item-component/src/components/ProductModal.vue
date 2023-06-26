@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Order: {{ orderProducts.orderRef }}</h2>
+    <h3>Order: {{ orderProducts.orderRef }}</h3>
     <li v-for="productLine in productsWithQuantities" :key="productLine.product.sku">
       <ProductContainer :productLine="productLine" :orderRef="orderProducts.orderRef" />
     </li>

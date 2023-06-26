@@ -2,7 +2,7 @@
   <div>
     {{ productLine.product.title }} {{ productLine.product.sku }} 
     <!-- Typescript does not like the type voodoo I had to perform to extract the input value from the submit event.
-    It throws this error cause it cant figure out that at runtime the event will have the types I cast to it.
+    It throws this error cause it cant figure out that at runtime the submit event will have the properties/types I cast to it.
     The code works, so here it stays. -->
     <form @submit.prevent="submitQuantity">
       <label>Quantity</label>
