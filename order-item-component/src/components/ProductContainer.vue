@@ -1,6 +1,9 @@
 <template>
   <div>
     {{ productLine.product.title }} {{ productLine.product.sku }} 
+    <!-- Typescript does not like the type voodoo I had to perform to extract the input value from the submit event.
+    It throws this error cause it cant figure out that at runtime the event will have the types I cast to it.
+    The code works, so here it stays. -->
     <form @submit.prevent="submitQuantity">
       <label>Quantity</label>
       <input type="number" required min="0" :value="quantity" />
@@ -34,7 +37,6 @@ export default defineComponent({
     const {updateQuantity} = inject('updateQuantity') as {updateQuantity:(orderRef: string, sku: string, quantity: number)=>void}
   
     function submitQuantity(event:Event & {target:HTMLFormElement & {0:HTMLInputElement}} ){
-      console.log(event)
      updateQuantity(props.orderRef, props.productLine.product.sku, parseInt(event.target[0].value))
     }
     return { quantity, showForm, submitQuantity};

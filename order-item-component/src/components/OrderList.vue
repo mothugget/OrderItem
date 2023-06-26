@@ -315,26 +315,40 @@ export default defineComponent({
         (order) => order.orderRef === orderRef
       );
 
-      const productIndex = ORDER_LIST.value[orderIndex].productList.findIndex(
+      let productIndex = ORDER_LIST.value[orderIndex].productList.findIndex(
         (productLine) => productLine.product.sku === sku
       );
-      //if 0 then remove the productLine from the order
-      if (quantity <1) {
-        ORDER_LIST.value[orderIndex].productList.splice(productIndex, 1);
-        //otherwise just update the product line quantity
-      } else {
-        ORDER_LIST.value[orderIndex].productList[productIndex].quantity = quantity;
+      // Add product line to order if it isn't already there
+      if (productIndex === -1 && quantity>0) {
+        const productToAdd = PRODUCT_LIST.find(
+          (product) => product.sku === sku
+        );
+        productToAdd &&
+          ORDER_LIST.value[orderIndex].productList.unshift({
+            quantity: quantity,
+            product: productToAdd,
+          });
+        productIndex = 0;
+      } else if (productIndex!==-1){
+        //if quantity 0 then remove the productLine from the order
+        if (quantity < 1) {
+          ORDER_LIST.value[orderIndex].productList.splice(productIndex, 1);
+          //otherwise just update the product line quantity
+        } else {
+          ORDER_LIST.value[orderIndex].productList[productIndex].quantity =
+            quantity;
+        }
       }
     }
 
-    provide('updateQuantity', { updateQuantity })
-    provide('PRODUCT_LIST',PRODUCT_LIST.values)
+    provide('updateQuantity', { updateQuantity });
+    provide('PRODUCT_LIST', PRODUCT_LIST);
 
-    const displayedOrders= computed(()=> {
-      return [...ORDER_LIST.value].slice(0,5)
-    })
+    const displayedOrders = computed(() => {
+      return [...ORDER_LIST.value].slice(0, 5);
+    });
 
-    return {  ORDER_LIST, deleteOrder, displayedOrders };
+    return { ORDER_LIST, deleteOrder, displayedOrders };
   },
 });
 </script>
