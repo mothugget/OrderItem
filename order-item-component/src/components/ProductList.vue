@@ -3,7 +3,7 @@
     <li v-for="productLine in productList" :key="productLine.product.sku">
       <ProductContainer :productLine="productLine"  :orderRef="orderRef" />
     </li>
-<button @click="launchProductModal">+</button>
+<button @click="launchProductModal">Add product to order</button>
     <ProductModalVue v-if="showProductModal" :orderProducts="orderProducts"/>
   </div>
 </template>

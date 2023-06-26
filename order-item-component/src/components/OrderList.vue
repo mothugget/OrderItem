@@ -300,7 +300,7 @@ export default defineComponent({
   border-radius: 4px;
   font-size: 16px;
   text-align: center;
-  padding: 2px;
+  padding: 4px 3px;
 }
 
 #search-input::placeholder {
