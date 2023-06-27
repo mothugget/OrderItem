@@ -68,14 +68,7 @@ tr {
     border-color: #ff7658;
     border-radius: 0px 0px 10px 0px;
     align-self: flex-start;
-  }
-
-  .address-align{
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    
+    margin-bottom: 4px;
   }
 }
 </style>

@@ -1,10 +1,16 @@
 <template>
   <div class="product-list">
     <li v-for="productLine in productList" :key="productLine.product.sku">
-      <ProductContainer  :productLine="productLine" :orderRef="orderRef" />
+      <ProductContainer :productLine="productLine" :orderRef="orderRef" />
     </li>
-    <button class="add-button" @click="launchProductModal">Add product to order</button>
-    <ProductModalVue @close="launchProductModal" v-if="showProductModal" :orderProducts="orderProducts" />
+    <button class="add-button" @click="launchProductModal">
+      Add product to order
+    </button>
+    <ProductModalVue
+      @close="launchProductModal"
+      v-if="showProductModal"
+      :orderProducts="orderProducts"
+    />
   </div>
 </template>
 
@@ -65,12 +71,13 @@ export default defineComponent({
   align-items: center;
 }
 
-.add-button{
-  margin: 3px;
+.add-button {
+  margin-top: 3px;
+  margin-bottom: 5px;
 }
 
 @media only screen and (min-width: 600px) {
-  .product-list{
+  .product-list {
     margin-top: 13px;
     align-self: flex-start;
   }

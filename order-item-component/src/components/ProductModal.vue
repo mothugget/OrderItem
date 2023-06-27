@@ -38,11 +38,8 @@ export default defineComponent({
   components: {
     ProductContainer,
   },
-  setup(props,{emit}) {
-
+  setup(props, { emit }) {
     const productList = inject<Product[]>('PRODUCT_LIST');
-
-    
 
     function closeModal() {
       emit('close');

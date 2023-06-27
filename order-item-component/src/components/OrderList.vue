@@ -9,7 +9,11 @@
         maxlength="5"
       />
     </form>
-    <li class="order-list-elements" v-for="order in displayedOrders" :key="order.orderRef">
+    <li
+      class="order-list-elements"
+      v-for="order in displayedOrders"
+      :key="order.orderRef"
+    >
       <OrderItem :order="order" />
       <button class="delete-button" @click="deleteOrder(order)">
         <div class="delete-button-inner"></div>
@@ -82,153 +86,153 @@ export default defineComponent({
     ];
 
     const ORDER_LIST = ref<OrderItemType[]>([
-  {
-    orderRef: 'MR1Zq',
-    address: {
-      name: 'John Doe',
-      company: 'ABC Company',
-      street: '123 Main Street',
-      city: 'City1',
-      postalCode: '12345',
-      country: 'Country1'
-    },
-    productList: [
       {
-        product: {
-          sku: 'ZJY1JYB1A1',
-          title: 'Bolt',
-          category: 'Automotive',
-          price: 73.52
+        orderRef: 'MR1Zq',
+        address: {
+          name: 'John Doe',
+          company: 'ABC Company',
+          street: '123 Main Street',
+          city: 'City1',
+          postalCode: '12345',
+          country: 'Country1',
         },
-        quantity: 1
-      }
-    ]
-  },
-  {
-    orderRef: 'wt3l5',
-    address: {
-      name: 'Jane Smith',
-      company: 'XYZ Corporation',
-      street: '456 Elm Street',
-      city: 'City2',
-      postalCode: '67890',
-      country: 'Country2'
-    },
-    productList: [
-      {
-        product: {
-          sku: 'ZJY1JYB1A1',
-          title: 'Bolt',
-          category: 'Automotive',
-          price: 73.52
-        },
-        quantity: 5
+        productList: [
+          {
+            product: {
+              sku: 'ZJY1JYB1A1',
+              title: 'Bolt',
+              category: 'Automotive',
+              price: 73.52,
+            },
+            quantity: 1,
+          },
+        ],
       },
       {
-        product: {
-          sku: '86ZL82ERVQ',
-          title: 'Washer',
-          category: 'Industry',
-          price: 38.09
+        orderRef: 'wt3l5',
+        address: {
+          name: 'Jane Smith',
+          company: 'XYZ Corporation',
+          street: '456 Elm Street',
+          city: 'City2',
+          postalCode: '67890',
+          country: 'Country2',
         },
-        quantity: 2
-      }
-    ]
-  },
-  {
-    orderRef: 'gpn2n',
-    address: {
-      name: 'John Doe',
-      company: 'ABC Company',
-      street: '123 Main Street',
-      city: 'City1',
-      postalCode: '12345',
-      country: 'Country1'
-    },
-    productList: [
-      {
-        product: {
-          sku: 'ZJY1JYB1A1',
-          title: 'Bolt',
-          category: 'Automotive',
-          price: 73.52
-        },
-        quantity: 2
+        productList: [
+          {
+            product: {
+              sku: 'ZJY1JYB1A1',
+              title: 'Bolt',
+              category: 'Automotive',
+              price: 73.52,
+            },
+            quantity: 5,
+          },
+          {
+            product: {
+              sku: '86ZL82ERVQ',
+              title: 'Washer',
+              category: 'Industry',
+              price: 38.09,
+            },
+            quantity: 2,
+          },
+        ],
       },
       {
-        product: {
-          sku: '9LU38YOJ8A',
-          title: 'Piston',
-          category: 'Industry',
-          price: 81.14
+        orderRef: 'gpn2n',
+        address: {
+          name: 'John Doe',
+          company: 'ABC Company',
+          street: '123 Main Street',
+          city: 'City1',
+          postalCode: '12345',
+          country: 'Country1',
         },
-        quantity: 3
-      }
-    ]
-  },
-  {
-    orderRef: 'i94Dp',
-    address: {
-      name: 'Jane Smith',
-      company: 'XYZ Corporation',
-      street: '456 Elm Street',
-      city: 'City2',
-      postalCode: '67890',
-      country: 'Country2'
-    },
-    productList: [
-      {
-        product: {
-          sku: 'EIQ25ZB9UQ',
-          title: 'Nut',
-          category: 'Automotive',
-          price: 75.36
-        },
-        quantity: 2
+        productList: [
+          {
+            product: {
+              sku: 'ZJY1JYB1A1',
+              title: 'Bolt',
+              category: 'Automotive',
+              price: 73.52,
+            },
+            quantity: 2,
+          },
+          {
+            product: {
+              sku: '9LU38YOJ8A',
+              title: 'Piston',
+              category: 'Industry',
+              price: 81.14,
+            },
+            quantity: 3,
+          },
+        ],
       },
       {
-        product: {
-          sku: '6EFD0C00DI',
-          title: 'Clamp',
-          category: 'Nautical',
-          price: 68.62
+        orderRef: 'i94Dp',
+        address: {
+          name: 'Jane Smith',
+          company: 'XYZ Corporation',
+          street: '456 Elm Street',
+          city: 'City2',
+          postalCode: '67890',
+          country: 'Country2',
         },
-        quantity: 3
+        productList: [
+          {
+            product: {
+              sku: 'EIQ25ZB9UQ',
+              title: 'Nut',
+              category: 'Automotive',
+              price: 75.36,
+            },
+            quantity: 2,
+          },
+          {
+            product: {
+              sku: '6EFD0C00DI',
+              title: 'Clamp',
+              category: 'Nautical',
+              price: 68.62,
+            },
+            quantity: 3,
+          },
+          {
+            product: {
+              sku: 'CMVI6FA5BC',
+              title: 'Bearing',
+              category: 'Industry',
+              price: 38.87,
+            },
+            quantity: 2,
+          },
+        ],
       },
       {
-        product: {
-          sku: 'CMVI6FA5BC',
-          title: 'Bearing',
-          category: 'Industry',
-          price: 38.87
+        orderRef: 'IsLCq',
+        address: {
+          name: 'John Doe',
+          company: 'ABC Company',
+          street: '123 Main Street',
+          city: 'City1',
+          postalCode: '12345',
+          country: 'Country1',
         },
-        quantity: 2
-      }
-    ]
-  },
-  {
-    orderRef: 'IsLCq',
-    address: {
-      name: 'John Doe',
-      company: 'ABC Company',
-      street: '123 Main Street',
-      city: 'City1',
-      postalCode: '12345',
-      country: 'Country1'
-    },
-    productList: [
-      {
-        product: {
-          sku: 'CMVI6FA5BC',
-          title: 'Bearing',
-          category: 'Industry',
-          price: 38.87
-        },
-        quantity: 3
-      }
-    ]
-  }
-]);
+        productList: [
+          {
+            product: {
+              sku: 'CMVI6FA5BC',
+              title: 'Bearing',
+              category: 'Industry',
+              price: 38.87,
+            },
+            quantity: 3,
+          },
+        ],
+      },
+    ]);
 
     function deleteOrder(order: OrderItemType) {
       const index = ORDER_LIST.value.indexOf(order);
@@ -307,7 +311,7 @@ export default defineComponent({
   color: #199f7b;
 }
 
-.order-list-elements{
+.order-list-elements {
   position: relative;
   margin-bottom: 15px;
 }
@@ -315,7 +319,7 @@ export default defineComponent({
 .delete-button {
   position: absolute;
   top: 24px;
-  right:0px;
+  right: 0px;
   z-index: 2;
   width: 20px;
   height: 20px;
@@ -350,7 +354,7 @@ export default defineComponent({
 }
 
 @media only screen and (min-width: 600px) {
-  .search-form{
+  .search-form {
     align-self: flex-end;
   }
 }
