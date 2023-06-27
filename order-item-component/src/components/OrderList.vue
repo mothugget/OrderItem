@@ -254,7 +254,7 @@ export default defineComponent({
     function updateQuantity(orderRef: string, sku: string, quantity: number) {
       const orderIndex = findOrderIndex(orderRef);
       let productIndex = findProductLineIndex(sku, orderIndex);
-      // Add product line to order if it isn't already there
+      // Add product line to order if it isn't already there (but dont try to delete products not on the order item)
       if (productIndex === -1 && quantity > 0) {
         const productToAdd = PRODUCT_LIST.find(
           (product) => product.sku === sku
