@@ -89,8 +89,8 @@ export default defineComponent({
 .order-item-container {
   position: relative;
   z-index: 6;
-  background: #d2fff5;
-  padding: 18px 18px;
+  background: #fafffe;
+  padding: 15px 0px;
 }
 
 h3 {

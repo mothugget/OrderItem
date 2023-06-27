@@ -45,3 +45,11 @@ export default defineComponent({
   overflow: hidden;
 }
 </style>
+
+<style scoped>
+@media only screen and (min-width: 600px) {
+  .order-item-container {
+    flex-direction: row;
+  }
+}
+</style>

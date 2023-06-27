@@ -3,7 +3,7 @@
     <li v-for="productLine in productList" :key="productLine.product.sku">
       <ProductContainer  :productLine="productLine" :orderRef="orderRef" />
     </li>
-    <button @click="launchProductModal">Add product to order</button>
+    <button class="add-button" @click="launchProductModal">Add product to order</button>
     <ProductModalVue @close="launchProductModal" v-if="showProductModal" :orderProducts="orderProducts" />
   </div>
 </template>
@@ -63,5 +63,16 @@ export default defineComponent({
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.add-button{
+  margin: 3px;
+}
+
+@media only screen and (min-width: 600px) {
+  .product-list{
+    margin-top: 13px;
+    align-self: flex-start;
+  }
 }
 </style>

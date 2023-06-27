@@ -1,30 +1,30 @@
 <template>
-  <table class="adress-container">
-    <tr>
-      <td class="table-label">Name</td>
-      <td>{{ address.name }}</td>
-    </tr>
-    <tr>
-      <td class="table-label">Company</td>
-      <td>{{ address.company }}</td>
-    </tr>
-    <tr>
-      <td class="table-label">Street</td>
-      <td>{{ address.street }}</td>
-    </tr>
-    <tr>
-      <td class="table-label">City</td>
-      <td>{{ address.city }}</td>
-    </tr>
-    <tr>
-      <td class="table-label">Postal Code</td>
-      <td>{{ address.postalCode }}</td>
-    </tr>
-    <tr>
-      <td class="table-label">Country</td>
-      <td>{{ address.country }}</td>
-    </tr>
-  </table>
+    <table class="adress-container">
+      <tr>
+        <td class="table-label">Name</td>
+        <td>{{ address.name }}</td>
+      </tr>
+      <tr>
+        <td class="table-label">Company</td>
+        <td>{{ address.company }}</td>
+      </tr>
+      <tr>
+        <td class="table-label">Street</td>
+        <td>{{ address.street }}</td>
+      </tr>
+      <tr>
+        <td class="table-label">City</td>
+        <td>{{ address.city }}</td>
+      </tr>
+      <tr>
+        <td class="table-label">Postal Code</td>
+        <td>{{ address.postalCode }}</td>
+      </tr>
+      <tr>
+        <td class="table-label">Country</td>
+        <td>{{ address.country }}</td>
+      </tr>
+    </table>
 </template>
 
 <script lang="ts">
@@ -46,7 +46,7 @@ export default defineComponent({
 .adress-container {
   border-bottom: 2px solid;
   border-color: #ff7658;
-  width:100%;
+  width: 100%;
   border-radius: 0px 0px 10px 10px;
   padding: 3px;
 }
@@ -59,5 +59,23 @@ tr {
   text-align: right;
   color: #199f7b;
   font-weight: 600;
+}
+
+@media only screen and (min-width: 600px) {
+  .adress-container {
+    justify-items: flex-start;
+    border-right: 2px solid;
+    border-color: #ff7658;
+    border-radius: 0px 0px 10px 0px;
+    align-self: flex-start;
+  }
+
+  .address-align{
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    
+  }
 }
 </style>

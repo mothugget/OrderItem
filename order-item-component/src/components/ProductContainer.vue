@@ -81,13 +81,13 @@ h4 {
   color: #04694e;
 }
 .product-container {
-  width:275px;
+  width:220px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   background: #87f0d4;
-  margin: 3px 0px;
+  margin: 3px 20px;
   padding: 3px;
   border-radius: 4px;
   box-shadow: 2px 2px 3px rgb(175, 175, 175);
@@ -132,5 +132,11 @@ h4 {
   color: #067f5f00;
   animation-name: popup;
   animation-duration: 1s;
+}
+
+@media only screen and (min-width: 600px) {
+  .product-container{
+    margin: 3px 20px 3px 10px;
+  }
 }
 </style>

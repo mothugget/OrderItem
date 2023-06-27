@@ -1,8 +1,8 @@
 <template>
   <div class="order-list">
-    <form>
+    <form class="search-form">
       <input
-        id="search-input"
+        class="search-input"
         placeholder="Search by Order Ref"
         type="text"
         v-model="search"
@@ -295,7 +295,7 @@ export default defineComponent({
   align-items: center;
 }
 
-#search-input {
+.search-input {
   border: 1px solid #199f7b;
   border-radius: 4px;
   font-size: 16px;
@@ -347,5 +347,11 @@ export default defineComponent({
     80% 0%,
     50% 30%
   );
+}
+
+@media only screen and (min-width: 600px) {
+  .search-form{
+    align-self: flex-end;
+  }
 }
 </style>
