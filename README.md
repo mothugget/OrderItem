@@ -10,5 +10,5 @@ The mock data was created using chatGPT. I felt this is the sort of task at whic
  
 ## Diagrams 
 
-The diagrams in the planning section were created in tthe draw.io extension for VSCode. I exported them as png for hassle free viewing. [link: Draw.IO extension](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio)
+The diagrams in the planning section were created in the draw.io extension for VSCode. I exported them as png for hassle free viewing. [link: Draw.IO extension](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio)
 
