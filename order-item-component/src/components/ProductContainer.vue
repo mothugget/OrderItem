@@ -68,7 +68,7 @@ export default defineComponent({
       }, 1100);
     }
 
-    return { quantity, showForm, submitQuantity, showPopUp, consoleLogChange };
+    return { quantity, showForm, submitQuantity, showPopUp };
   },
 });
 </script>
