@@ -241,14 +241,19 @@ export default defineComponent({
       }
     }
 
-    function updateQuantity(orderRef: string, sku: string, quantity: number) {
-      const orderIndex = ORDER_LIST.value.findIndex(
-        (order) => order.orderRef === orderRef
-      );
+    function findOrderIndex(orderRef: string): number {
+      return ORDER_LIST.value.findIndex((order) => order.orderRef === orderRef);
+    }
 
-      let productIndex = ORDER_LIST.value[orderIndex].productList.findIndex(
+    function findProductLineIndex(sku: string, orderIndex: number): number {
+      return ORDER_LIST.value[orderIndex].productList.findIndex(
         (productLine) => productLine.product.sku === sku
       );
+    }
+
+    function updateQuantity(orderRef: string, sku: string, quantity: number) {
+      const orderIndex = findOrderIndex(orderRef);
+      let productIndex = findProductLineIndex(sku, orderIndex);
       // Add product line to order if it isn't already there
       if (productIndex === -1 && quantity > 0) {
         const productToAdd = PRODUCT_LIST.find(
