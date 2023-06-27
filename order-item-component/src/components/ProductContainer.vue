@@ -8,9 +8,8 @@
     It throws this error cause it cant figure out that at runtime the submit event will have the properties/types I cast to it.
     The code works, so here it stays. -->
     <form class="quantity-form" @submit.prevent="submitQuantity">
-     
-        <label>Quantity</label>
-         <div class="quantity">
+      <label>Quantity</label>
+      <div class="quantity">
         <input
           class="quantity-input"
           type="number"
@@ -18,12 +17,11 @@
           min="0"
           :value="quantity"
         />
-      
 
-      <button :disabled="showPopUp" type="submit">
-        Save
-        <div v-if="showPopUp" class="saved-popup">Saved</div>
-      </button>
+        <button :disabled="showPopUp" type="submit">
+          Save
+          <div v-if="showPopUp" class="saved-popup">Saved</div>
+        </button>
       </div>
     </form>
   </div>
@@ -56,16 +54,21 @@ export default defineComponent({
 
     const showPopUp = ref(false);
 
-    function submitQuantity(event: Event & { target: HTMLFormElement & { 0: HTMLInputElement } }) {
+    function submitQuantity(
+      event: Event & { target: HTMLFormElement & { 0: HTMLInputElement } }
+    ) {
       updateQuantity(
         props.orderRef,
         props.productLine.product.sku,
         parseInt(event.target[0].value)
       );
       showPopUp.value = true;
-      setTimeout(()=>{showPopUp.value = false}, 1100)
+      setTimeout(() => {
+        showPopUp.value = false;
+      }, 1100);
     }
-    return { quantity, showForm, submitQuantity, showPopUp };
+
+    return { quantity, showForm, submitQuantity, showPopUp, consoleLogChange };
   },
 });
 </script>
@@ -81,7 +84,7 @@ h4 {
   color: #04694e;
 }
 .product-container {
-  width:220px;
+  width: 220px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -99,7 +102,7 @@ h4 {
   align-items: center;
 }
 
-.quantity-form label{
+.quantity-form label {
   position: relative;
   left: 6px;
 }
@@ -135,7 +138,7 @@ h4 {
 }
 
 @media only screen and (min-width: 600px) {
-  .product-container{
+  .product-container {
     margin: 3px 20px 3px 10px;
   }
 }
